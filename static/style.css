@@ -1,0 +1,12 @@
+form{
+    width: 100px;
+}
+
+input{
+    width: 100%;
+    padding: 10px 5px;
+}
+
+#msg{
+    color: red
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family:monospace;
+            font-size: 25px;
+            background-color: #00ccd3;
+        }
+
+        #main-title{
+            padding: 1.5rem;
+            background-color: rgb(24, 22, 22);
+            width: 800px;
+            border-radius: 25px;
+            box-shadow: 20px 12px;
+            margin: 20px;
+        }
+
+        #main-title h1{
+            color: #eee;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-transform: capitalize;
+            font-size: 30px;
+        }
+
+        #search-box{
+            display: inline-flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        #box1{
+            justify-content: right;
+        }
+
+        #search-area input{
+            width: 270px;
+            border: 1px solid blueviolet;
+
+        }
+
+        #button-area input{
+            cursor: pointer;
+        }
+        
+        input{
+            border-radius: 25px;
+            padding: 13px;
+            text-align: center;
+        }
+
+
+        #search-btn{
+            background-color: rgb(24, 23, 23);
+            font-weight: bold;
+            color: white;
+            border-radius: 30px;
+        }
+        #content{
+            width: 120vh;
+            height: 80vh;
+            margin-top: 7rem;
+            margin-bottom: 3rem;
+            background: rgba( 255, 255, 255, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        
+        footer{
+            background: black;
+            bottom: 0;
+            position: relative;
+            justify-items: baseline;
+            width: 100%;
+            background-size: cover;
+        }
+
+        footer a{
+            color: white;
+        }
+
+
+    </style>
+    <center>
+        <div>
+            <div id="main-title">
+                <h1 class="input"></h1>
+            </div>
+            
+            <div id="description-box">
+                <p>Get all daily updates on your area. </p>
+            </div>
+
+
+            <div class="content-box">
+                    <div id="search-box">      
+                            <h4><i class="fas fa weather"></i> Get your weather insights for your area below </h4>
+                            <br>
+                            
+                                <div id="box1">
+                                    <div id="search-box">
+                                        <form action="" method="POST">
+                                            {% csrf_token %}
+
+                                            <div id="search-area">                           
+                                                <input type="text" name="city">
+                                            </div>
+
+                                            <div id="button-area">
+                                                <input type="submit" id="search-btn" value="GET">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>   
+                    </div>
+
+
+                    <div id="content">
+                        <div id="box1">
+                            <h2>{{city}}</h2>
+                            <h2>Country Code: {{data.country}}</h2>
+                            <h4>Coordinates: {{data.coordinate}}</h4>
+                            <h4>Temperature: {{data.temp}}</h4>
+                            <h4>Humidity: {{data.humidity}}</h4>
+                        </div>
+
+                    </div>
+            </div>
+   
+            <footer>
+            <p>Find us on twitter for generalised daily weather updates</p> 
+            <a href="">Twitter</a>
+            <a href="">facebook</a>
+            <a href="">Telegram</a>
+            </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </center>
+
+   
+  
+    
+   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        var typed = new Typed(".input", {
+                strings:["Welcome to dev_Max weather insights", "Get the latest updates from trusted Weather prediction firms", "Type your area name below"],
+                typeSpeed: 160,
+                backSpeed: 15,
+                loop: true
+
+            })
+    </script> 
+</body>
+</html>
